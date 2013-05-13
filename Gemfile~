@@ -19,11 +19,16 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem 'gmail'
   gem 'rspec-rails', '~> 2.6.1.beta1'
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'rack-test'
+  gem 'cucumber-rails', :git => "git://github.com/cucumber/cucumber-rails"
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'email_spec'
+  gem 'launchy'
 end
