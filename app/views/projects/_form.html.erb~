@@ -1,2 +1,8 @@
-<%= f.label :name %>
-<%= f.text_field :name %>
+<%= form_for(@project) do |f| %>
+<%= f.error_messages %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <%= f.submit %>
+<% end %>
