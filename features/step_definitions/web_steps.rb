@@ -209,7 +209,3 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
-
-Given /^there is a project called "([^\"]*)"$/ do |name|
-  Factory(:project, :name => name)
-end
