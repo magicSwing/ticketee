@@ -6,8 +6,8 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
 
+  <body>
     <% flash.each do |key, value| %>
       <div class='flash' id='<%= key %>'>
         <%= value %>
@@ -16,14 +16,19 @@
 
     <h1><%= link_to "Ticketee", root_path %></h1>
     <nav>
-    <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %>
-  <% end %>
-  <%= link_to "Sign in", new_user_session_path %>
-  </nav>
-  <%= yield %>
+      <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
+      <%= link_to "Sign in", new_user_session_path %>
 
-</body>
+      <%= admins_only do %>
+        <%= link_to "Admin", admin_root_path %><br>
+      <% end %>
+
+    </nav>
+    <%= yield %>
+  </body>
+
 </html>
